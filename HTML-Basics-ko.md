@@ -16,22 +16,24 @@ HTML을 쉽게 이해할고 올바르게 사용할수있도록 정리해봤습�
    3.1 [doctype](#doctype-html)  
    3.2 [html](#htmlhtml)  
    3.3 [head](#headhead)  
-   3.4 [body](#bodybody)
+   3.2 [body](#bodybody)
 4. [텍스트 관련 태그들](#텍스트-관련-태그들)  
-   4.1 [p](#pp)  
-   4.2 [span](#spanspan)  
-   4.2 [strong](#strongstrong)  
-   4.2 [em](#emem)  
-   4.2 [h1 ~ h6](#h1h6)
+   2.1 [p](#pp)  
+   2.2 [span](#spanspan)  
+   2.2 [strong](#strongstrong)  
+   2.2 [em](#emem)  
+   2.2 [h1 ~ h6](#h1h6)
 5. [그룹핑(Grouping) 관련 태그들](#그룹핑Grouping-관련-태그들)  
    5.1 [header](#headerheader)  
    5.2 [nav](#navnav)  
    5.3 [main](#mainmain)  
-   5.4 [aside](#asideaside)  
+   5.2 [aside](#asideaside)  
    5.5 [ul](#ulul)  
    5.6 [ol](#olol)  
    5.7 [dl](#dldl)  
    5.8 [footer](#footerfooter)
+6. [테이블](#테이블-요소)
+   6.1 [table](#tabletable)
 
 <br>
 <br>
@@ -61,8 +63,8 @@ HTML에서 `태그`, `요소` 이 두 단어를 많이 듯게되는데, 이 두�
 
 태그는 요소를 만드는 부품이라고 생각하면 된다  
 태그에는 두가지가 있는데: 1) 열림 태그, 2) 닫힘 태그  
-열림 태그는 `<` 와 `>` 사이에 태그 이름을 넣어서 만든다  
-닫힘 태그는 `</` 와 `>` 사이에 태그 이름을 넣어서 만든다
+열림 태그는 `<` 와 `>` 사이에 태그 물품을 넣어서 만든다  
+닫힘 태그는 `</` 와 `>` 사이에 태그 물품을 넣어서 만든다
 
 ```html
 <p><!-- 열림 태그 --></p>
@@ -227,10 +229,10 @@ HTML의 시작점 이다
 - `<h1>`은 그 페이지의 제목이다. 즉, `<h1>`만으로 그 페이지의 내용을 추리할수 있어야 한다
 - `<h2>`는 그 페이지의 각 섹션 제목이다
 - `<h3>`은 `<h2>`섹션의 부 제목이다
-- `<h4>`는 `<h3>`의 부 제목이다
-- `<h5>`는 `<h4>`의 부 제목이다
+- `<h2>`는 `<h3>`의 부 제목이다
+- `<h5>`는 `<h2>`의 부 제목이다
 - `<h6>`은 `<h5>`의 부 제목이다
-- 각 페이지의 제목 깊이로 최대 `<h3>`~`<h4>`가 제일 이상적이다
+- 각 페이지의 제목 깊이로 최대 `<h3>`~`<h2>`가 제일 이상적이다
 - 헤딩 레벨을 건너뛰는건 기피해야 한다
 
 예)
@@ -444,3 +446,365 @@ HTML의 시작점 이다
 - 사이트맵
 - 맨 위로 돌아가기 링크
 - 관련된 문서
+
+<br>
+<br>
+<br>
+
+# 테이블 요소
+
+## `<table></table>`
+
+엑셀처럼 데이터를 행과 열로 표시할때 사용한다  
+'ul', 'ol'처럼 테이블이라는 큰 틀을 만들뿐, 이 태그 하나로는 테이블을 만들수없다  
+당연히 필수 태그이다
+
+같이 사용되는 태그들:
+
+- [`<caption></caption>`](#captioncaption)
+- [`<thead></thead>`](#theadthead)
+- [`<tr></tr>`](#trtr)
+- [`<th></th>`](#thth)
+- [`<tbody></tbody>`](#tbodytbody)
+- [`<td></td>`](#tdtd)
+- [`<tfoot></tfoot>`](#tfoottfoot)
+
+### `<caption></caption>`
+
+테이블의 제목/용도를 정할때 사용한다  
+기본적으로 테이블에서 제일 처음으로 보이고, 가운데 정렬된다
+
+필수 태그는 아니지만 웹 접근성에 도움이 된다  
+스크린 리더와 호환되어 유저가 테이블에 도착했을때 제일먼저 읽어주는 내용이다  
+스크린 리더를 사용하는 유저는 이 요소의 내용으로 테이블의 용도를 추리할수있다
+
+예시)  
+// `style="width: 100%` 는 무시해도 된다. 행과 열없이는 테이블의 넓이가 좁아서 임시로 넓이를 늘린거다
+
+<table style="width: 100%">
+  <caption>8월 지출 내역</caption>
+</table>
+
+코드)
+
+```html
+<table>
+  <caption>
+    8월 지출 내역
+  </caption>
+</table>
+```
+
+### `<thead></thead>`
+
+테이블의 머릿말 이라고 할수있다  
+각 행(세로)의 제목이 들어간다  
+필수 태그는 아니다  
+사용할때의 장점은 CSS로 엑셀에서처럼 첫번째 열을 고정하는걸 구현할수있다
+
+예시)  
+// `style="width: 100%` 는 무시해도 된다. 행과 열없이는 테이블의 넓이가 좁아서 임시로 넓이를 늘린거다
+
+<table style="width: 100%">
+  <caption>8월 지출 내역</caption>
+  <thead>
+
+  </thead>
+</table>
+
+코드)
+
+```html
+<table style="width: 100%">
+  <caption>
+    8월 지출 내역
+  </caption>
+  <thead></thead>
+</table>
+```
+
+### `<tr></tr>`
+
+테이블의 열(가로 줄)을 만들때 사용한다  
+필수 태그이다  
+'thead', 'tbody', 'tfoot'안에서 사용된다
+
+예시)  
+// `style="width: 100%` 는 무시해도 된다. 행과 열없이는 테이블의 넓이가 좁아서 임시로 넓이를 늘린거다
+
+<table style="width: 100%">
+  <caption>8월 지출 내역</caption>
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+</table>
+
+코드)
+
+```html
+<table style="width: 100%">
+  <caption>
+    8월 지출 내역
+  </caption>
+  <thead>
+    <tr></tr>
+  </thead>
+</table>
+```
+
+### `<th></th>`
+
+행, 열의 제목을 만들때 사용한다  
+필수 태그이다  
+스크린 리더에서 테이블 헤딩이라고 알려준다  
+이걸로 스크린 리더 유저는 각 행의 내용을 파악할수있다  
+`scope`속성을 같이 사용하면 웹 접근성을 더 좋게 만들어준다
+
+`scope`은 이 제목이 어느 구간의 제목인지를 정하는 속성이다  
+이 속성의 값으로는:
+
+<dl>
+<dt>col</dt>
+<dd>한 행(세로)의 제목을 뜻한다</dd>
+<dt>row</dt>
+<dd>한 열(가로)의 제목을 뜻한다</dd>
+<dt>colgroup</dt>
+<dd>여러 행의 제목을 뜻한다. `colspan`속성과 같이 사용된다</dd>
+<dt>rowgroup</dt>
+<dd>여러 열의 제목을 뜻한다. `rowspan`속성과 같이 사용된다</dd>
+</dl>
+
+`*span`속성
+
+<dl>
+<dt>colspan</dt>
+<dd>행의 범위를 말한다. 값이 2 이면 한 행이 두 행만큼 늘어난다</dd>
+<dt>rowspan</dt>
+<dd>열의 범위를 말한다. 값이 2 이면 한 열이 두 열만큼 늘어난다</dd>
+</dl>
+
+사용방법)
+
+```html
+<th scope="col"></th>
+<th scope="row"></th>
+<th scope="colgroup" colspan="2"></th>
+<th scope="rowgroup" rowspan="2"></th>
+```
+
+'th' 예시)
+
+<table>
+  <caption>8월 지출 내역</caption>
+  <thead>
+    <tr>
+      <th>물품</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+  </thead>
+</table>
+
+코드)
+
+```html
+<table>
+  <caption>
+    8월 지출 내역
+  </caption>
+  <thead>
+    <tr>
+      <th>물품</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+  </thead>
+</table>
+```
+
+### `<tbody></tbody>`
+
+테이블의 본문이다  
+필수 태그이다  
+표시하고자 하는 데이터들을 표시한다
+
+<table>
+  <caption>8월 지출 내역</caption>
+  <thead>
+    <tr>
+      <th>물품</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+코드)
+
+```html
+<table>
+  <caption>
+    8월 지출 내역
+  </caption>
+  <thead>
+    <tr>
+      <th>물품</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+```
+
+### `<td></td>`
+
+테이블 셀을 만들때 사용한다  
+필수 태그이다  
+'th'와 같이 `rowspan`, `colspan`을 사용할수 있다
+
+<table>
+  <caption>8월 지출 내역</caption>
+  <thead>
+    <tr>
+      <th>물품</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>치킨</td>
+      <td>2</td>
+      <td>25200</td>
+    </tr>
+    <tr>
+      <td>바지</td>
+      <td>1</td>
+      <td>50000</td>
+    </tr>
+    <tr>
+      <td>아이스크림</td>
+      <td>5</td>
+      <td>25000</td>
+    </tr>
+  </tbody>
+</table>
+
+코드)
+
+```html
+<table>
+  <caption>
+    8월 지출 내역
+  </caption>
+  <thead>
+    <tr>
+      <th>물품</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>치킨</td>
+      <td>2</td>
+      <td>25200</td>
+    </tr>
+    <tr>
+      <td>바지</td>
+      <td>1</td>
+      <td>50000</td>
+    </tr>
+    <tr>
+      <td>아이스크림</td>
+      <td>5</td>
+      <td>25000</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### `<tfoot></tfoot>`
+
+테이블의 각 행을 요약할때 사용한다  
+필수 태그는 아니다
+
+<table>
+  <caption>8월 지출 내역</caption>
+  <thead>
+    <tr>
+      <th>물품</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>치킨</td>
+      <td>2</td>
+      <td>25200</td>
+    </tr>
+    <tr>
+      <td>바지</td>
+      <td>1</td>
+      <td>50000</td>
+    </tr>
+    <tr>
+      <td>아이스크림</td>
+      <td>5</td>
+      <td>25000</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td>8</td>
+      <td>100200</td>
+    </tr>
+  </tfoot>
+</table>
+
+코드)
+
+```html
+<table>
+  <caption>
+    8월 지출 내역
+  </caption>
+  <thead>
+    <tr>
+      <th>물품</th>
+      <th>갯수</th>
+      <th>가격</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>치킨</td>
+      <td>2</td>
+      <td>25200</td>
+    </tr>
+    <tr>
+      <td>바지</td>
+      <td>1</td>
+      <td>50000</td>
+    </tr>
+    <tr>
+      <td>아이스크림</td>
+      <td>5</td>
+      <td>25000</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td>8</td>
+      <td>100200</td>
+    </tr>
+  </tfoot>
+</table>
+```
