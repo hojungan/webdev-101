@@ -16,8 +16,7 @@ HTML을 쉽게 이해할고 올바르게 사용할수있도록 정리해봤습�
    3.1 [doctype](#doctype-html)  
    3.2 [html](#htmlhtml)  
    3.3 [head](#headhead)  
-   3.4 [body](#bodybody)  
-   3.5 [footer](#footerfooter)
+   3.4 [body](#bodybody)
 4. [텍스트 관련 태그들](#텍스트-관련-태그들)  
    4.1 [p](#pp)  
    4.2 [span](#spanspan)  
@@ -27,11 +26,12 @@ HTML을 쉽게 이해할고 올바르게 사용할수있도록 정리해봤습�
 5. [그룹핑(Grouping) 관련 태그들](#그룹핑Grouping-관련-태그들)  
    5.1 [header](#headerheader)  
    5.2 [nav](#navnav)  
-   5.3 [main](#mainmain)
-   5.4 [aside](#asideaside)
-   5.5 [ul](#ulul)
-   5.6 [ol](#olol)
-   5.7 [dl](#dldl)
+   5.3 [main](#mainmain)  
+   5.4 [aside](#asideaside)  
+   5.5 [ul](#ulul)  
+   5.6 [ol](#olol)  
+   5.7 [dl](#dldl)  
+   5.8 [footer](#footerfooter)
 
 <br>
 <br>
@@ -136,17 +136,6 @@ HTML의 시작점 이다
 
 이 요소는 페이지의 모든 콘텐츠들이 들어가는 요소이다  
 텍스트, 이미지, 비디오, 오디오, 링크, 등등 모든 웹 콘텐츠들을 담고, 브라우저에 표시한다
-
-## `<footer></footer>`
-
-웹 사이트의 바닥글로 페이지의 맨 밑에 위치한다  
-일반적으로 포함하는 내용들은
-
-- 저작권 정보
-- 연락처 정보
-- 사이트맵
-- 맨 위로 돌아가기 링크
-- 관련된 문서
 
 <br>
 <br>
@@ -444,3 +433,14 @@ HTML의 시작점 이다
   <dd>구글이만든 웹 브라우저로 모든 구글 앱을 사용하기 쉽게 만들어졌다</dd>
 </dl>
 ```
+
+## `<footer></footer>`
+
+웹 사이트의 바닥글로 페이지의 맨 밑에 위치한다  
+일반적으로 포함하는 내용들은
+
+- 저작권 정보
+- 연락처 정보
+- 사이트맵
+- 맨 위로 돌아가기 링크
+- 관련된 문서
