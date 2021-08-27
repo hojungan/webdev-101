@@ -36,9 +36,9 @@ HTML을 쉽게 이해할고 올바르게 사용할수있도록 정리해봤습�
 7. [테이블](#테이블-요소)  
    7.1 [table](#tabletable)
 
-<br>
-<br>
-<br>
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
 
 # HTML 작성 방법
 
@@ -52,9 +52,9 @@ HTML에서 코멘트는 아래와같이 할수있다
 ```
 
 코멘트는 브라우저가 무시하고, 브라우저에 표시되지 않는다
-<br>
-<br>
-<br>
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
 
 # 태그 vs 요소
 
@@ -87,9 +87,9 @@ HTML에서 `태그`, `요소` 이 두 단어를 많이 듯게되는데, 이 두�
 <p></p>
 ```
 
-<br>
-<br>
-<br>
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
 
 # HTML 기본 구조 만들기
 
@@ -111,14 +111,10 @@ HTML이 브라우저에서 정상적으로 작동하려면 기본 구조를 아�
 브라우저가 HTML문서를 HTML5 버전으로 인식하게 해주는 선언문 이다  
 문서에서 제일 첫번째 줄에 작성한다
 
-<br>
-
 ## `<html></html>`
 
 HTML의 시작점 이다  
 웹 페이지의 모든 내용들을 담는 컨테이너 이다. 루트(root) 라고도 한다
-
-<br>
 
 ## `<head></head>`
 
@@ -140,9 +136,9 @@ HTML의 시작점 이다
 이 요소는 페이지의 모든 콘텐츠들이 들어가는 요소이다  
 텍스트, 이미지, 비디오, 오디오, 링크, 등등 모든 웹 콘텐츠들을 담고, 브라우저에 표시한다
 
-<br>
-<br>
-<br>
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
 
 <!-- 메타 데이터 title, style, link, script, meta -->
 
@@ -250,9 +246,9 @@ HTML의 시작점 이다
 <h3>오이</h3>
 ```
 
-<br>
-<br>
-<br>
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
 
 # 그룹핑(Grouping) 관련 태그들
 
@@ -336,9 +332,9 @@ HTML의 시작점 이다
 </footer>
 ```
 
-<br>
-<br>
-<br>
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
 
 # 그룹핑 관련 태그들
 
@@ -460,9 +456,9 @@ HTML의 시작점 이다
 </dl>
 ```
 
-<br>
-<br>
-<br>
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
 
 # 테이블 요소
 
@@ -821,3 +817,71 @@ HTML의 시작점 이다
   </tfoot>
 </table>
 ```
+
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
+
+# 인터렉티브 태그들
+
+## `<a></a>`
+
+링크를 만들때 사용하는 태그이다  
+이 태그만 사용할수도있고, 다른 텍스트 태그와 같이 사용할수있다  
+`href`는 링크 태그의 필수 속성이다  
+이 속성이 있어야만 링크가 만들어진다  
+속성의 값으로는:
+
+- 웹 URL
+- 다른 요소의 아이디
+
+샘플)
+구글로 가는 링크  
+<a href="https://google.com">Google</a>  
+<br aria-hidden="true">
+다른 요소로 가는 링크  
+<a href="#HTML-기본-구조-만들기">HTML 기본 구조 만들기</a>
+
+```html
+<!-- 구글로 가는 링크 -->
+<a href="https://google.com">Google</a>
+
+<!-- 다른 요소로 가는 링크 -->
+<a href="#HTML-기본-구조-만들기">HTML 기본 구조 만들기</a>
+```
+
+옵션으로 `target`속성도 사용할수있다  
+이 속성은 링크를 어떻게 열건지를 정하는 속성이다  
+이 속성의 기본 값은 `_self`(셀프)이다. 이 값은 현재 창/탭에서 이동한다  
+속성을 사용하지 않으면 자동으로 셀프값을 사용한다  
+다른 값으로는 `_blank`(블랭크)가 있다. 이 값은 새로운 창/탭을 사용한다
+
+샘플)  
+현재 창/탭에서 열림  
+<a href="https://google.com">Google</a>  
+<a href="https://google.com" target="_self">Google</a>  
+<br>
+새로운 창/탭 에서 열림  
+<a href="https://google.com" target="_blank">Google</a>
+
+```html
+<!-- 현재 창/탭에서 열림 -->
+<a href="https://google.com">Google</a>
+<a href="https://google.com" target="_self">Google</a>
+
+<!-- 새로운 창/탭 에서 열림 -->
+<a href="https://google.com" target="_blank">Google</a>
+```
+
+## `<button></button>`
+
+버튼을 만들때 사용한다  
+링크와 버튼의 차이점:
+
+- 링크는 어딘가로 이동할때 사용 (예: 홈에서 연예 페이지로)
+- 버튼은 어떠한 동작을 구현할때 사용 (예: 로그인, 폼 재출, 다크모드 온/오프, 등등)
+
+버튼은 유저의 액션이 필요한 어디에서든지 사용가능하다  
+버튼만으로는 아무것도 하지않는다. 자바스크립트로 원하는 액션을 구현해줘야한다
+
+<button onclick="javascript: alert('버튼을 클릭하셨습니다')">테스트</button>
