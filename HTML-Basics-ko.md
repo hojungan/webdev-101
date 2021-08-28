@@ -44,12 +44,17 @@ HTML을 쉽게 이해할고 올바르게 사용할수있도록 정리해봤습�
    9.2 [audio](#audioaudio)  
    9.3 [video](#videovideo)  
    9.4 [iframe](#iframeiframe)
+10. [폼](#폼-태그들)  
+    10.1 [form](#formform)  
+    10.2 [fieldset](#fieldsetfieldset)  
+    10.3 [input](#input)  
+    10.4 [textarea](#textareatextarea)
 
 <br aria-hidden="true">
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# HTML 작성 방법
+# HTML 작성 방법 [위로 가기](#목차)
 
 ## 코멘트 (주석)
 
@@ -65,7 +70,7 @@ HTML에서 코멘트는 아래와같이 할수있다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 태그 vs 요소
+# 태그 vs 요소 [위로 가기](#목차)
 
 HTML에서 `태그`, `요소` 이 두 단어를 많이 듯게되는데, 이 두개의 차이점은
 
@@ -100,7 +105,7 @@ HTML에서 `태그`, `요소` 이 두 단어를 많이 듯게되는데, 이 두�
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# HTML 기본 구조 만들기
+# HTML 기본 구조 만들기 [위로 가기](#목차)
 
 HTML이 브라우저에서 정상적으로 작동하려면 기본 구조를 아래처럼 먼저 만들어줘야 한다
 
@@ -151,7 +156,7 @@ HTML의 시작점 이다
 
 <!-- 메타 데이터 title, style, link, script, meta -->
 
-# 텍스트 관련 태그들
+# 텍스트 관련 태그들 [위로 가기](#목차)
 
 ## `<p></p>`
 
@@ -259,7 +264,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 그룹핑(Grouping) 관련 태그들
+# 그룹핑(Grouping) 관련 태그들 [위로 가기](#목차)
 
 ## `<header></header>`
 
@@ -345,7 +350,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 그룹핑 관련 태그들
+# 그룹핑 관련 태그들 [위로 가기](#목차)
 
 ## `<ul></ul>`
 
@@ -469,7 +474,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 테이블 요소
+# 테이블 요소 [위로 가기](#목차)
 
 ## `<table></table>`
 
@@ -831,7 +836,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 인터렉티브 태그들
+# 인터렉티브 태그들 [위로 가기](#목차)
 
 ## `<a></a>`
 
@@ -943,7 +948,7 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 미디어 태그들
+# 미디어 태그들 [위로 가기](#목차)
 
 ## `<img />`
 
@@ -1040,3 +1045,101 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
 <br aria-hidden="true">
 <br aria-hidden="true">
 <br aria-hidden="true">
+
+# 폼 태그들 [위로 가기](#목차)
+
+## `<form></form>`
+
+폼, 즉 양식을 만들때 사용하는 태그다  
+이 태그만으로는 폼을 만들수는 없고, 다른 태그들을 같이 사용해서 여러 타입의 폼을 만들수있다
+
+폼 태그의 필수 속성 두 가지:
+
+- action: 폼을 재출할 URL
+- method: 폼의 재출 방식 (GET [받기], POST[보내기])
+
+```html
+<form action="https://www.mysite.com/form-submit" method="POST"></form>
+```
+
+## `<fieldset></fieldset>`
+
+폼의 여러 컨트롤들을 그룹짓는 태그이다  
+유저가 작성해야하는 분야를 나눠주는 역할이다
+
+<br aria-hidden="true">
+
+같이 사용하는 태그로 `<legend></legend>`가 있다  
+`legend`는 필드셋의 제목을 만들어준다
+
+```html
+<form action="https://www.mysite.com/form-submit" method="POST">
+  <fieldset>
+    <legend>개인 정보</legend>
+  </fieldset>
+  <fieldset>
+    <legend>취미</legend>
+  </fieldset>
+</form>
+```
+
+## `<input>`
+
+유저의 인풋을 받을수있는 태그이다  
+인풋 태그에는 정말 많은 타입이 존재하지만 여기서는 간단하게 몇가지만 알아보겠다  
+인풋 타입은 `type`속성을 사용해서 정할수있다
+
+인풋 타입:
+
+- text
+- email
+- password
+- tel
+- checkbox
+- radio
+- date
+- file
+- 등등
+
+인풋 태그를 사용할때는 꼭 `<label></label>` 태그를 같이 사용해야한다  
+`<label>`을 `<input>`과 연결하는 방법은 `id`와 `for`속성을 사용하는 방법이다
+
+```html
+<form action="https://www.mysite.com/form-submit" method="POST">
+  <fieldset>
+    <legend>개인 정보</legend>
+    <label for="name">이름</label>
+    <input type="text" id="name" />
+
+    <label for="email">이메일</label>
+    <input type="email" id="email" />
+  </fieldset>
+  <fieldset>
+    <legend>취미</legend>
+    <label for="game">게임</label>
+    <input type="radio" id="game" name="hobbies" value="game" />
+    <label for="fitness">운동</label>
+    <input type="radio" id="fitness" name="hobbies" value="fitness" />
+    <label for="coding">코딩</label>
+    <input type="radio" id="coding" name="hobbies" value="coding" />
+    <label for="travel">여행</label>
+    <input type="radio" id="travel" name="hobbies" value="travel" />
+  </fieldset>
+</form>
+```
+
+## `<textarea></textarea>`
+
+많은 양의 유저 입력을 받을수있는 태그이다  
+여러줄의 텍스트를 입력할수있어서 리뷰나 의견등의 입력을 수집할때 사용한다
+
+같이 사용할수있는 속성으로는
+
+- rows: 태그의 시작 높이를 정한다
+- cols: 태그의 시작 넓이를 정한다
+
+`row`, `col` 속성을 사용하지 않고 CSS로 넓이와 높이를 정할수있다
+
+```html
+<textarea cols="50" rows="7"></textarea>
+```
