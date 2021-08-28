@@ -54,7 +54,7 @@ HTML을 쉽게 이해할고 올바르게 사용할수있도록 정리해봤습�
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# HTML 작성 방법 [위로 가기](#목차)
+# HTML 작성 방법
 
 ## 코멘트 (주석)
 
@@ -70,7 +70,7 @@ HTML에서 코멘트는 아래와같이 할수있다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 태그 vs 요소 [위로 가기](#목차)
+# 태그 vs 요소
 
 HTML에서 `태그`, `요소` 이 두 단어를 많이 듯게되는데, 이 두개의 차이점은
 
@@ -105,7 +105,7 @@ HTML에서 `태그`, `요소` 이 두 단어를 많이 듯게되는데, 이 두�
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# HTML 기본 구조 만들기 [위로 가기](#목차)
+# HTML 기본 구조 만들기
 
 HTML이 브라우저에서 정상적으로 작동하려면 기본 구조를 아래처럼 먼저 만들어줘야 한다
 
@@ -156,7 +156,7 @@ HTML의 시작점 이다
 
 <!-- 메타 데이터 title, style, link, script, meta -->
 
-# 텍스트 관련 태그들 [위로 가기](#목차)
+# 텍스트 관련 태그들
 
 ## `<p></p>`
 
@@ -264,7 +264,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 그룹핑(Grouping) 관련 태그들 [위로 가기](#목차)
+# 그룹핑(Grouping) 관련 태그들
 
 ## `<header></header>`
 
@@ -350,7 +350,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 그룹핑 관련 태그들 [위로 가기](#목차)
+# 그룹핑 관련 태그들
 
 ## `<ul></ul>`
 
@@ -474,7 +474,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 테이블 요소 [위로 가기](#목차)
+# 테이블 요소
 
 ## `<table></table>`
 
@@ -836,7 +836,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 인터렉티브 태그들 [위로 가기](#목차)
+# 인터렉티브 태그들
 
 ## `<a></a>`
 
@@ -948,7 +948,7 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 미디어 태그들 [위로 가기](#목차)
+# 미디어 태그들
 
 ## `<img />`
 
@@ -1046,7 +1046,7 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 폼 태그들 [위로 가기](#목차)
+# 폼 태그들
 
 ## `<form></form>`
 
