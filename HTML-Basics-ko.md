@@ -39,6 +39,11 @@ HTML을 쉽게 이해할고 올바르게 사용할수있도록 정리해봤습�
    8.1 [a](#aa)  
    8.1 [button](#buttonbutton)  
    8.1 [details](#detailsdetails)
+9. [미디어 태그들](#미디어-태그들)  
+   9.1 [img](#img)  
+   9.2 [audio](#audioaudio)  
+   9.3 [video](#videovideo)  
+   9.4 [iframe](#iframeiframe)
 
 <br aria-hidden="true">
 <br aria-hidden="true">
@@ -949,9 +954,11 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
 샘플)  
 로컬 이미지 사용  
 <img src="./img/bg.jpg">
+
 <br aria-hidden="true">
 <br aria-hidden="true">
 <br aria-hidden="true">
+
 이미지 URL사용  
 <img src="https://picsum.photos/640/427">
 
@@ -1029,3 +1036,7 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
 ```html
 <iframe src="https://www.youtube.com/embed/qBjrBGQ-xH4"></iframe>
 ```
+
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
