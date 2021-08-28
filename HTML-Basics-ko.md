@@ -917,7 +917,7 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
 어코디언은 버튼클릭으로 아래에있는 상세정보를 열었다 닫았다 할수있는 요소이다  
 이 태그는 `<summary></summary>` 태그와 같이 사용된다  
 `<details>`는 요소의 틀을 만들고 `<summary>`는 이 요소의 제목을 뜻한다
-
+<br aria-hidden="true">
 기본적으로 아무런 스타일이 없어서 CSS로 따로 스타일을 해줘야한다
 
 샘플)
@@ -932,4 +932,102 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
   <summary>테스트 - 클릭해서 열어보세요</summary>
   <p>어코디언 요소입니다.</p>
 </details>
+```
+
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
+
+# 미디어 태그들
+
+## `<img />`
+
+이미지를 사용할때 사용하는 태그이다  
+`src`필수 속성을 사용해서 이미지를 나타낼수있다  
+이 속성의 값으로는 로컬 이미지 또는 이미지의 웹 URL을 사용할수있다
+
+샘플)  
+로컬 이미지 사용  
+<img src="./img/bg.jpg">
+<br aria-hidden="true">
+<br aria-hidden="true">
+<br aria-hidden="true">
+이미지 URL사용  
+<img src="https://picsum.photos/640/427">
+
+```html
+<!-- 로컬 이미지 사용 -->
+<img src="./img/bg.jpg" />
+<!-- 이미지 URL 사용 -->
+<img src="https://picsum.photos/640/427" />
+```
+
+이미지에는 또다른 필수 속성인 `alt`가 있다  
+이 속성은 이미지가 로드 안될때 이미지 대신에 보여지는 텍스트라고 알고있지만  
+이것도 맞는 말이지만 또다른 용도는 스크린 리더 유저들을 위함이다  
+스크린 리더가 이 속성의 텍스트를 읽어줌으로 유저가 이미지에 담겨있는 정보를 접할수있다
+
+```html
+<img src="..." alt="이미지를 설명하는 텍스트" />
+```
+
+## `<audio></audio>`
+
+페이지에 오디오 플레이어를 만들때 사용하는 태그이다  
+이 태그를 사용하는 방법은 두 가지가 있다
+
+- `src` 속성 사용
+- `<source>` 태그 사용
+
+```html
+<!-- src 속성 사용 -->
+<audio src="/media/cc0-audio/t-rex-roar.mp3"></audio>
+
+<!-- source 태그 사용 -->
+<audio>
+  <source src="horse.ogg" type="audio/ogg" />
+  <source src="horse.mp3" type="audio/mpeg" />
+</audio>
+```
+
+`<source>`태그를 사용할때 장점은 여러가지의 오디오 타입을 사용해서 브라우저와의 호환성을 높일수있다
+
+<br aria-hidden="true">
+
+오디오 태그와 같이 사용할수있는 속성들:
+
+- `autoplay`: 오디오를 자동 재생
+- `controls`: 오디오 컨트롤 UI 생성
+- `loop`: 오디오 반복 재생
+
+```html
+<audio src="..." autoplay controls loop></audio>
+```
+
+## `<video></video>`
+
+비디오 플레이어를 만들때 사용하는 태그이다  
+오디오 태그와 비슷하게 여러 속성을 사용해서 여러 컨트롤을 활성화할수있다
+
+```html
+<!-- src 속성 사용 -->
+<video src="..." controls autoplay loop></video>
+
+<!-- source태그 사용 -->
+<video controls autoplay loop>
+  <source src="movie.mp4" type="video/mp4" />
+  <source src="movie.ogg" type="video/ogg" />
+</video>
+```
+
+## `<iframe></iframe>`
+
+아이프레임, 다른 웹 컨텐츠를 내 웹 페이지에 삽입할때 사용하는 태그이다  
+유튜브 영상을 내 페이지에 삽입할때 사용하는 방식이다  
+사용 방식은 필수 속성인 `src`에 웹 URL을 주어 사용한다
+
+<iframe src="https://www.youtube.com/embed/qBjrBGQ-xH4"></iframe>
+
+```html
+<iframe src="https://www.youtube.com/embed/qBjrBGQ-xH4"></iframe>
 ```
