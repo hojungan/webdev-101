@@ -264,7 +264,7 @@ HTML의 시작점 이다
 <br aria-hidden="true">
 <br aria-hidden="true">
 
-# 그룹핑(Grouping) 관련 태그들
+# 섹션 관련 태그들
 
 ## `<header></header>`
 
