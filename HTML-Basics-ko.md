@@ -1026,8 +1026,6 @@ _이벤트에 대한 자세한 내용은 자바스크립트에서 확인할수�
 유튜브 영상을 내 페이지에 삽입할때 사용하는 방식이다  
 사용 방식은 필수 속성인 `src`에 웹 URL을 주어 사용한다
 
-<iframe src="https://www.youtube.com/embed/qBjrBGQ-xH4"></iframe>
-
 ```html
 <iframe src="https://www.youtube.com/embed/qBjrBGQ-xH4"></iframe>
 ```
