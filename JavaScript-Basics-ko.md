@@ -333,9 +333,10 @@ car // {brand: "Kia", model: "K5", color: "white"}
 ```
 
 <h2 id="dom-manipulation">DOM 조작</h2>  
-HTML이 브라우저에 로드되면 브라우저는 DOM(Document Object Model)을 만듭니다.
-DOM은 자바스크립트로 동적인 HTML을 만드는데 필요한 모든 기능을가지고 있습니다.
-`document`를 통해 HTML요소들에 접근할수있습니다.
+
+HTML이 브라우저에 로드되면 브라우저는 DOM(Document Object Model)을 만듭니다.  
+DOM은 자바스크립트로 동적인 HTML을 만드는데 필요한 모든 기능을가지고 있습니다.  
+`document`를 통해 HTML요소들에 접근할수있습니다.  
 
 ```js
 // HTML요소 찾기
