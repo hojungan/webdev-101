@@ -13,7 +13,7 @@
    - 텍스트
    - 배열
    - 객체
-4. 3부 - DOM 조작 (작성중)
+4. 3부 - [DOM 조작](#dom-manipulation)
 5. 4부 - 함수 (작성중)
 6. 5부 - API 사용 (작성중)
 
@@ -331,3 +331,76 @@ car.brand = "Kia"
 car.model = "K5"
 car // {brand: "Kia", model: "K5", color: "white"}
 ```
+
+<h2 id="dom-manipulation">DOM 조작</h2>  
+HTML이 브라우저에 로드되면 브라우저는 DOM(Document Object Model)을 만듭니다.  
+DOM은 자바스크립트로 동적인 HTML을 만드는데 필요한 모든 기능을가지고 있습니다.  
+`document`를 통해 HTML요소들에 접근할수있습니다.  
+
+```js
+// HTML요소 찾기
+document.getElementById() // 요소의 id를 사용 document.getElementById('container') => div#main
+document.getElementsByClassName() // 요소의 class를 사용, 같은 class를 가진 모든 요소들을 배열형태로 반환 document.getElementsByClassName('left') => [div.left, div.left, div.left]
+document.getElementsByTagName() // 요소의 태그 이름을 사용, 주어진 모든 태그를 배열형태로 반환 document.getElementsByTagName('p') => [p.intro, p, p, p, p, p]
+
+document.querySelector() // CSS 선택자를 사용; 선택자에 맞는 첫번째 요소를 반환 document.querySelector('.left') => div.left
+document.querySelectorAll() // CSS 선택자를 사용; 선택자에 맞는 모든 요소들을 배열형태로 반환 document.querySelectorAll('.left') => [div.left, div.left, div.left, div.left]
+
+// HTML 요소 만들기
+document.createElement() // 태그 이름을 사용해서 요소를 만듬
+document.createElement('p') // <p></p>
+document.createElement('div') // <div></div>
+
+// HTML 요소 추가하기
+let div = document.createElement('div')
+let p = document.createElement('p')
+div.appendChild(p) // <div> <p></p> </div>
+
+// HTML 요소 지우기
+let img = document.querySelector('img')
+img.remove()
+
+// HTML 자녀 요소
+let header = document.querySelector('header')
+let children = header.children // 요소의 직속 자녀(들)을 배열형태로 반환
+
+// HTML 요소 내용 가져오기
+let div = document.querySelector('div')
+div.innerHTML // div 안의 모든 HTML을 텍스트형태로 반환
+div.innerText // div 안의 모든 텍스트를 텍스트형태로 반환
+div.innerHTML = "<a href='...'>link</a>" // <div> <a href='...'>link</a> </div>
+div.innerText = "some random text" // <div> some random text </div>
+
+// HTML 요소 스타일
+// style 속성
+document.querySelector('h2').style // 모든 스타일을 객체형태로 반환
+document.querySelector('h2').style.fontSize // 폰트 사이즈를 반환
+document.querySelector('h2').style.fontSize = "20px" // 폰트 사이즈를 20px으로 지정
+
+// CSS 스타일
+let h2 = document.querySelector('h2')
+let styles = window.getComputedStyle(h2)
+styles.fontSize // 폰트 사이즈를 반환
+styles.color // 폰트 색상을 반환
+
+// 부모 요소
+let a = document.querySelector('.link')
+a.parentNode
+
+// 형제 요소
+document.querySelector('li').nextElementSibling //오른쪽 형제 요소
+document.querySelector('li').previousElementSibling // 왼쪽 형제 요소
+
+// 요소 class/id
+document.querySelector('a').id // id 확인
+document.querySelector('a').id = "main-button" // id 지정
+
+
+document.querySelector('a').className // class 확인
+document.querySelector('a').className = "mystyle" // class 지정
+document.querySelector('a').className = "mystyle" // class 지정
+document.querySelector('a').classList.add() // 한개 이상의 class를 지정 classList.add('myclass'), classList.add('myclass', 'dark-mode')
+document.querySelector('a').classList.remove() // 요소에서 한개 이상의 class 빼기 classList.remove('myclass'), classList.remove('myclass', 'dark-mode')
+```
+
+자세한 정보는 [W3School 에서 확인할수 있습니다](https://www.w3schools.com/jsreF/dom_obj_all.asp)
