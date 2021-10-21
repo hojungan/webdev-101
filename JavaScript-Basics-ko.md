@@ -340,11 +340,17 @@ DOM은 자바스크립트로 동적인 HTML을 만드는데 필요한 모든 기
 ```js
 // HTML요소 찾기
 document.getElementById() // 요소의 id를 사용 document.getElementById('container') => div#main
-document.getElementsByClassName() // 요소의 class를 사용, 같은 class를 가진 모든 요소들을 배열형태로 반환 document.getElementsByClassName('left') => [div.left, div.left, div.left]
-document.getElementsByTagName() // 요소의 태그 이름을 사용, 주어진 모든 태그를 배열형태로 반환 document.getElementsByTagName('p') => [p.intro, p, p, p, p, p]
+document.getElementsByClassName() // 요소의 class를 사용, 같은 class를 가진 모든 요소들을 배열형태로 반환
+// document.getElementsByClassName('left') => [div.left, div.left, div.left]
 
-document.querySelector() // CSS 선택자를 사용; 선택자에 맞는 첫번째 요소를 반환 document.querySelector('.left') => div.left
-document.querySelectorAll() // CSS 선택자를 사용; 선택자에 맞는 모든 요소들을 배열형태로 반환 document.querySelectorAll('.left') => [div.left, div.left, div.left, div.left]
+document.getElementsByTagName() // 요소의 태그 이름을 사용, 주어진 모든 태그를 배열형태로 반환
+// document.getElementsByTagName('p') => [p.intro, p, p, p, p, p]
+
+document.querySelector() // CSS 선택자를 사용; 선택자에 맞는 첫번째 요소를 반환 
+// document.querySelector('.left') => div.left
+
+document.querySelectorAll() // CSS 선택자를 사용; 선택자에 맞는 모든 요소들을 배열형태로 반환 
+// document.querySelectorAll('.left') => [div.left, div.left, div.left, div.left]
 
 // HTML 요소 만들기
 document.createElement() // 태그 이름을 사용해서 요소를 만듬
@@ -399,8 +405,11 @@ document.querySelector('a').id = "main-button" // id 지정
 document.querySelector('a').className // class 확인
 document.querySelector('a').className = "mystyle" // class 지정
 document.querySelector('a').className = "mystyle" // class 지정
-document.querySelector('a').classList.add() // 한개 이상의 class를 지정 classList.add('myclass'), classList.add('myclass', 'dark-mode')
-document.querySelector('a').classList.remove() // 요소에서 한개 이상의 class 빼기 classList.remove('myclass'), classList.remove('myclass', 'dark-mode')
+document.querySelector('a').classList.add() // 한개 이상의 class를 지정 
+// classList.add('myclass'), classList.add('myclass', 'dark-mode')
+
+document.querySelector('a').classList.remove() // 요소에서 한개 이상의 class 빼기 
+// classList.remove('myclass'), classList.remove('myclass', 'dark-mode')
 ```
 
 자세한 정보는 [W3School 에서 확인할수 있습니다](https://www.w3schools.com/jsreF/dom_obj_all.asp)
