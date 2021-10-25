@@ -424,7 +424,7 @@ document.querySelector('a').classList.remove() // 요소에서 한개 이상의 
 - [for loop](#for)
 - [while loop](#while)
 - [for in loop](#forin)
-- [for of loop](#forof)]
+- [for of loop](#forof)
 - [do while loop](#dowhile)
 
 ---
