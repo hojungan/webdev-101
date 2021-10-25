@@ -14,8 +14,9 @@
    - 배열
    - 객체
 4. 3부 - [DOM 조작](#dom-manipulation)
-5. 4부 - 함수 (작성중)
-6. 5부 - API 사용 (작성중)
+5. 4부 - [루프(Loops)](#loops)
+6. 5부 - 함수 (작성중)
+7. 6부 - API 사용 (작성중)
 
 ---
 
@@ -414,3 +415,215 @@ document.querySelector('a').classList.remove() // 요소에서 한개 이상의 
 ```
 
 자세한 정보는 [W3School 에서 확인할수 있습니다](https://www.w3schools.com/jsreF/dom_obj_all.asp)
+
+<h2 id="loops">루프(Loops)</h2>  
+
+루프는 조건에 따른 반복 작업을 수행할때 사용되는 간단한 알고리즘 입니다.  
+루프는 주어진 조건이 충족됬을때 종료합니다.  
+자바스크립트에는 4가지의 루프들이 존재합니다  
+- [for loop](#for)
+- [while loop](#while)
+- [for in loop](#forin)
+- [for of loop](#forof)]
+- [do while loop](#dowhile)
+
+---
+
+<h3 id="for">for loop</h3>  
+
+`for` 루프의 조건은 횟수 입니다.  
+이 루프는 `루프 컨트롤 변수`, `루프 조건`, 그리고 `증가/감소 조건`을 사용해 주어진 작업을 반복적으로 수행합니다.  
+
+```js
+
+// for 루프 작성법
+   /*루프 컨트롤 변수     루프 컨트롤 변수     증가 조건*/
+for (let i = 0;           i < 10;             i++) /*루프 선언문*/ 
+{ /*루프 바디*/
+
+  // 수행할 작업
+  console.log(i)
+}
+
+++ 는 하나씩 증가. i = i + 1 과 같음
+
+output:
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+// 배열 사용
+let links = document.querySelectorAll('a') // 모든 링크 요소들
+for(let i = 0; i < links.length; i++) {
+  
+  // links[i]
+}
+```
+
+**루프 설명**  
+
+| 반복 횟수 | i | i++ | 조건 충족 |
+|---|---|---|---|
+| 1 | 0 | 1 | ✔ 계속 |
+| 2 | 1 | 2 | ✔ 계속 |
+| 3 | 2 | 3 | ✔ 계속 |
+| 4 | 3 | 4 | ✔ 계속 |
+| 5 | 4 | 5 | ✔ 계속 |
+| 6 | 5 | 6 | ✔ 계속 |
+| 7 | 6 | 7 | ✔ 계속 |
+| 8 | 7 | 8 | ✔ 계속 |
+| 9 | 8 | 9 | ✔ 계속 |
+| 10 | 9 | 10 | ❌ 끝 |
+
+---
+
+<h3 id="while">while loop</h3>  
+
+`while` 루프의 조건은 조건의 값 입니다.  
+조건의 값이 `true` 일 경우에만 작동합니다.  
+`while` 루프의 종료는 주어진 조건이 `false` 일때입니다.  
+`for` 루프와 비슷해 보이지만, `while` 루프의 루프 컨트롤은 루프 내에서 수동으로 변경되고  
+`for` 루프의 경우 루프 컨트롤은 루프 선언문에서 자동으로 변경됩니다
+
+**_NOTE_**  
+조건의 값이 항상 `true` 일 경우 `while` 루프는 무한대로 실행되며 프로그램을 충돌시킵니다.  
+
+```js
+// while 루프 작성법
+let i = 0
+while(i < 10) {
+
+  // 루프 컨트롤 변경
+  i++
+}
+
+// 배열 사용
+let links = Array.from(document.querySelectorAll('a')) // 모든 링크 요소들
+while(links.length)
+{
+  let node = links.shift() // links 에서 첫번째 요소 꺼내오기
+
+  ...
+}
+```
+
+**배열 사용 설명**  
+
+프로그래밍에서 `0` 은 `false` 와 같은 의미입니다.  
+루프의 바디에서 `links.shift()` 로 `links` 배열의 첫번째 요소를 꺼내면  
+`links` 의 길이는 하나 감소합니다.  
+이렇게 반복적으로 `links` 배열에서 요소를 꺼내면 언젠가는 `links` 배열의 길이는 `0` 이되고  
+그러면 `while` 루프의 조건은 `false` 가 되며, 그때 루프는 종료됩니다.  
+
+예시:  
+```js
+let links = Array.from(document.querySelectorAll('a'))
+links.length // 5
+```
+
+| `link` 길이 | `links.shift()` | `links` 길이 | 조건 충족 |
+|---|---|---|---|
+| 5 | 5 - 1 | 4 | ✔ 다음 |
+| 4 | 4 - 1 | 3 | ✔ 다음 |
+| 3 | 3 - 1 | 2 | ✔ 다음 |
+| 2 | 2 - 1 | 1 | ✔ 다음 |
+| 1 | 1 - 1 | 0 | ❌ 끝 |
+
+---
+
+<h3 id="forin">for in loop</h3>  
+
+`for in` 루프는 `for`, `while` 과는 다르게 객체 속성을 반복할때 사용됩니다.  
+객체의 마지막 속성에 다다르면 루프는 종료됩니다.  
+
+```js
+let object = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4
+}
+
+for(const key in object) {
+  console.log(key + "::" + object[key])
+}
+
+output:
+a::1
+b::2
+c::3
+d::4
+```
+
+---
+
+<h3 id="forof">for of loop</h3>  
+
+`for of` 는 반복 가능한 객체, 즉 배열, 스트링, 맵, 노드리스트 같은 배열 형태에 사용됩니다.  
+
+```js
+let links = document.querySelectorAll('a')
+
+for(const link of links) {
+  console.log(link.href)
+}
+
+let str = "hello"
+for(const letter of str) {
+  console.log(letter)
+}
+
+output:
+h
+e
+l
+l
+o
+```
+
+---
+
+<h3 id="dowhile">do while loop</h3>  
+
+`while` 루프와 비슷하지만 다른점은 루프 내의 작업 실행 순서 입니다.  
+`while` 루프 플로우:  
+조건 확인 -> 조건 충족 -> 작업 실행 -> 반복  
+&nbsp; &nbsp; &nbsp; &nbsp; ↪  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 조건 미충족 -> 루프 종료  
+`do while` 루프 플로우:  
+작업 실행 -> 조건 확인 -> 조건 충족 -> 반복  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ↪ &nbsp; &nbsp; &nbsp; &nbsp; 조건 미충족 -> 루프 종료  
+
+```js
+let i = 0
+let result = []
+do {
+  result.push(i**2) // i의 제곱
+  i++
+} while(i < 0)
+
+console.log(result) // [0]
+```
+
+조건이 처음부터 충족되지 않음에도 `result` 에 `0` 이 추가되었습니다.  
+이것을 `while` 루프로 해보면  
+
+```js
+let i = 0
+let result = []
+while(i < 0) {
+  result.push(i**2)
+  i++
+}
+
+console.log(result) // []
+```
+
+조건이 먼저 확인되면서 조건이 충족되지 않는게 확인, `result` 에는 아무것도 추가되지 않습니다.  
+
