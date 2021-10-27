@@ -9,14 +9,11 @@
 1. [소개](#intro)
 2. [1부 - 데이터 타입](#data-type)
 3. [2부 - 데이터 조작](#data-manipulation)
-   - 수학
-   - 텍스트
-   - 배열
-   - 객체
-4. 3부 - [DOM 조작](#dom-manipulation)
-5. 4부 - [루프(Loops)](#loops)
-6. 5부 - 함수 (작성중)
-7. 6부 - API 사용 (작성중)
+4. [3부 - DOM 조작](#dom-manipulation)
+5. [4부 - 루프(Loops)](#loops)
+6. [5부 - 조건문/비교 연산](#conditionals)
+7. 6부 - 함수 (작성중)
+8. 7부 - API 사용 (작성중)
 
 ---
 
@@ -172,6 +169,10 @@ let mixed = [
   [4, 5, 6, 7, 8], //배열
 ];
 ```
+
+<br>
+<br>
+<br>
 
 <h2 id="data-manipulation">2부 - 데이터 조작</h2>  
 
@@ -333,6 +334,10 @@ car.model = "K5"
 car // {brand: "Kia", model: "K5", color: "white"}
 ```
 
+<br>
+<br>
+<br>
+
 <h2 id="dom-manipulation">DOM 조작</h2>  
 
 HTML이 브라우저에 로드되면 브라우저는 DOM(Document Object Model)을 만듭니다.  
@@ -415,6 +420,10 @@ document.querySelector('a').classList.remove() // 요소에서 한개 이상의 
 ```
 
 자세한 정보는 [W3School 에서 확인할수 있습니다](https://www.w3schools.com/jsreF/dom_obj_all.asp)
+
+<br>
+<br>
+<br>
 
 <h2 id="loops">루프(Loops)</h2>  
 
@@ -627,3 +636,178 @@ console.log(result) // []
 
 조건이 먼저 확인되면서 조건이 충족되지 않는게 확인, `result` 에는 아무것도 추가되지 않습니다.  
 
+<br>
+<br>
+<br>
+
+<h2 id="conditionals">조건문/비교 연산</h2>  
+
+**조건문**  
+
+조건문은 말 그대로 조건에따라 작업을 실행할때 사용됩니다.  
+조건은 만드는 방법은  
+
+1. `true/false` 값을 사용
+2. 비교 연산을 사용
+
+이렇게 두가지 방법이 있습니다.  
+
+<br>
+<br>
+
+```js
+// 조건문 if...else
+if(true) {
+  console.log('true')
+} else {
+  console.log('false')
+}
+output: true
+
+
+if(5 > 3) {
+  console.log('true')
+} else {
+  console.log('false')
+}
+output: true
+
+
+const user = {
+  username: 'iamuser',
+  isAdmin: false
+}
+
+if(user.isAdmin) {
+  console.log('true')
+}else {
+  console.log('false')
+}
+output: false
+```
+
+`if` 는 주어진 조건이 `true` 일때 실행됩니다.  
+`else` 는 if 의 조건이 `false` 일때 실행됩니다.  
+
+`if`의 조건에는 주로 비교 연산을 같이 사용합니다.  
+
+<br>
+<br>
+
+```js
+// 조건문 switch
+let val = 5
+
+switch(val) {
+  case 5:
+    console.log("correct")
+    break;
+  case 10:
+    console.log("wrong")
+    break;
+  default:
+    console.log("unknown")
+}
+output: "correct"
+
+
+val = '5'
+
+switch(val) {
+  case 5:
+    console.log("correct")
+    break;
+  case 10:
+    console.log("wrong")
+    break;
+  default:
+    console.log("unknown")
+}
+output: "unknown"
+```
+
+`switch` 는 주어진 조건에 맞는 케이스의 작업을 실행합니다.  
+`default` 는 맞는 케이스가 없는경우 실행됩니다.  
+케이스는 항상 `break` 로 끝나야 합니다. 그렇지 않으면 `break` 가 있는 케이스를 만날때까지 각 케이스의 작업을 실행순서대로 실행합니다.  
+
+```js
+let val = 5
+
+switch(val) {
+  case 5:
+    console.log("correct")
+  case 10:
+    console.log("wrong")
+    break;
+  default:
+    console.log("unknown")
+}
+output: "correct wrong"
+``` 
+
+---
+
+**비교 연산**  
+
+비교 연산은  
+
+* equal (==/===) (동일 비교 연산)
+* not equal (!=/!==) (비동일 비교 연산)
+* greater than (>)
+* greater than or equal (>=)
+* less than (<)
+* less than or equal (<=)
+* and (&&)
+* or (||)
+* not (!)
+
+이렇게 9가지가 있습니다.  
+
+`==` vs `===`  
+`==` 은 좌우를 같은 타입으로 변환해서 비교합니다. 타입 변환후 값이 같으면 `true` 를 반환합니다.  
+
+```js
+5 == '5' => true
+```  
+
+<br>
+
+`===` 은 좌우의 타입을 변환하지 않습니다. 오직 타입과 값이 같을경우에만 `true` 를 반환합니다.  
+
+```js
+5 === '5' => false  
+```
+
+<br>
+
+`!=` 와 `!==` 은 비동일 연산으로 좌우가 다를때 `true` 를 반환합니다.  
+
+```js
+4 != 5 => true  
+5 !== '5' => true
+```
+
+<br>
+
+`&&` 연산  
+
+* `true && true` => true
+* `true && false` => false
+* `false && true` => false
+* `false && false` => false
+
+<br>
+
+`||` 연산  
+
+* `true || true` => true
+* `true || false` => true
+* `false || true` => true
+* `false || false` => false
+
+<br>
+
+`!` 연산  
+
+* `!true` => false
+* `!false` => true
