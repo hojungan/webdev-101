@@ -9,13 +9,11 @@
 1. [소개](#intro)
 2. [1부 - 데이터 타입](#data-type)
 3. [2부 - 데이터 조작](#data-manipulation)
-   - 수학
-   - 텍스트
-   - 배열
-   - 객체
-4. 3부 - [DOM 조작](#dom-manipulation)
-5. 4부 - 함수 (작성중)
-6. 5부 - API 사용 (작성중)
+4. [3부 - DOM 조작](#dom-manipulation)
+5. [4부 - 루프(Loops)](#loops)
+6. [5부 - 조건문/비교 연산](#conditionals)
+7. [6부 - 함수](#function)
+8. 7부 - API 사용 (작성중)
 
 ---
 
@@ -171,6 +169,10 @@ let mixed = [
   [4, 5, 6, 7, 8], //배열
 ];
 ```
+
+<br>
+<br>
+<br>
 
 <h2 id="data-manipulation">2부 - 데이터 조작</h2>  
 
@@ -332,6 +334,10 @@ car.model = "K5"
 car // {brand: "Kia", model: "K5", color: "white"}
 ```
 
+<br>
+<br>
+<br>
+
 <h2 id="dom-manipulation">DOM 조작</h2>  
 
 HTML이 브라우저에 로드되면 브라우저는 DOM(Document Object Model)을 만듭니다.  
@@ -414,3 +420,529 @@ document.querySelector('a').classList.remove() // 요소에서 한개 이상의 
 ```
 
 자세한 정보는 [W3School 에서 확인할수 있습니다](https://www.w3schools.com/jsreF/dom_obj_all.asp)
+
+<br>
+<br>
+<br>
+
+<h2 id="loops">루프(Loops)</h2>  
+
+루프는 조건에 따른 반복 작업을 수행할때 사용되는 간단한 알고리즘 입니다.  
+루프는 주어진 조건이 충족됬을때 종료합니다.  
+자바스크립트에는 4가지의 루프들이 존재합니다  
+- [for loop](#for)
+- [while loop](#while)
+- [for in loop](#forin)
+- [for of loop](#forof)
+- [do while loop](#dowhile)
+
+---
+
+<h3 id="for">for loop</h3>  
+
+`for` 루프의 조건은 횟수 입니다.  
+이 루프는 `루프 컨트롤 변수`, `루프 조건`, 그리고 `증가/감소 조건`을 사용해 주어진 작업을 반복적으로 수행합니다.  
+
+```js
+
+// for 루프 작성법
+   /*루프 컨트롤 변수     루프 컨트롤 변수     증가 조건*/
+for (let i = 0;           i < 10;             i++) /*루프 선언문*/ 
+{ /*루프 바디*/
+
+  // 수행할 작업
+  console.log(i)
+}
+
+++ 는 하나씩 증가. i = i + 1 과 같음
+
+output:
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+// 배열 사용
+let links = document.querySelectorAll('a') // 모든 링크 요소들
+for(let i = 0; i < links.length; i++) {
+  
+  // links[i]
+}
+```
+
+**루프 설명**  
+
+| 반복 횟수 | i | i++ | 조건 충족 |
+|---|---|---|---|
+| 1 | 0 | 1 | ✔ 계속 |
+| 2 | 1 | 2 | ✔ 계속 |
+| 3 | 2 | 3 | ✔ 계속 |
+| 4 | 3 | 4 | ✔ 계속 |
+| 5 | 4 | 5 | ✔ 계속 |
+| 6 | 5 | 6 | ✔ 계속 |
+| 7 | 6 | 7 | ✔ 계속 |
+| 8 | 7 | 8 | ✔ 계속 |
+| 9 | 8 | 9 | ✔ 계속 |
+| 10 | 9 | 10 | ❌ 끝 |
+
+---
+
+<h3 id="while">while loop</h3>  
+
+`while` 루프의 조건은 조건의 값 입니다.  
+조건의 값이 `true` 일 경우에만 작동합니다.  
+`while` 루프의 종료는 주어진 조건이 `false` 일때입니다.  
+`for` 루프와 비슷해 보이지만, `while` 루프의 루프 컨트롤은 루프 내에서 수동으로 변경되고  
+`for` 루프의 경우 루프 컨트롤은 루프 선언문에서 자동으로 변경됩니다
+
+**_NOTE_**  
+조건의 값이 항상 `true` 일 경우 `while` 루프는 무한대로 실행되며 프로그램을 충돌시킵니다.  
+
+```js
+// while 루프 작성법
+let i = 0
+while(i < 10) {
+
+  // 루프 컨트롤 변경
+  i++
+}
+
+// 배열 사용
+let links = Array.from(document.querySelectorAll('a')) // 모든 링크 요소들
+while(links.length)
+{
+  let node = links.shift() // links 에서 첫번째 요소 꺼내오기
+
+  ...
+}
+```
+
+**배열 사용 설명**  
+
+프로그래밍에서 `0` 은 `false` 와 같은 의미입니다.  
+루프의 바디에서 `links.shift()` 로 `links` 배열의 첫번째 요소를 꺼내면  
+`links` 의 길이는 하나 감소합니다.  
+이렇게 반복적으로 `links` 배열에서 요소를 꺼내면 언젠가는 `links` 배열의 길이는 `0` 이되고  
+그러면 `while` 루프의 조건은 `false` 가 되며, 그때 루프는 종료됩니다.  
+
+예시:  
+```js
+let links = Array.from(document.querySelectorAll('a'))
+links.length // 5
+```
+
+| `link` 길이 | `links.shift()` | `links` 길이 | 조건 충족 |
+|---|---|---|---|
+| 5 | 5 - 1 | 4 | ✔ 계속 |
+| 4 | 4 - 1 | 3 | ✔ 계속 |
+| 3 | 3 - 1 | 2 | ✔ 계속 |
+| 2 | 2 - 1 | 1 | ✔ 계속 |
+| 1 | 1 - 1 | 0 | ❌ 끝 |
+
+---
+
+<h3 id="forin">for in loop</h3>  
+
+`for in` 루프는 `for`, `while` 과는 다르게 객체 속성을 반복할때 사용됩니다.  
+객체의 마지막 속성에 다다르면 루프는 종료됩니다.  
+
+```js
+let object = {
+  a: 1,
+  b: 2,
+  c: 3,
+  d: 4
+}
+
+for(const key in object) {
+  console.log(key + "::" + object[key])
+}
+
+output:
+a::1
+b::2
+c::3
+d::4
+```
+
+---
+
+<h3 id="forof">for of loop</h3>  
+
+`for of` 는 반복 가능한 객체, 즉 배열, 스트링, 맵, 노드리스트 같은 배열 형태에 사용됩니다.  
+
+```js
+let links = document.querySelectorAll('a')
+
+for(const link of links) {
+  console.log(link.href)
+}
+
+let str = "hello"
+for(const letter of str) {
+  console.log(letter)
+}
+
+output:
+h
+e
+l
+l
+o
+```
+
+---
+
+<h3 id="dowhile">do while loop</h3>  
+
+`while` 루프와 비슷하지만 다른점은 루프 내의 작업 실행 순서 입니다.  
+`while` 루프 플로우:  
+조건 확인 -> 조건 충족 -> 작업 실행 -> 반복  
+&nbsp; &nbsp; &nbsp; &nbsp; ↪  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 조건 미충족 -> 루프 종료  
+`do while` 루프 플로우:  
+작업 실행 -> 조건 확인 -> 조건 충족 -> 반복  
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ↪ &nbsp; &nbsp; &nbsp; &nbsp; 조건 미충족 -> 루프 종료  
+
+```js
+let i = 0
+let result = []
+do {
+  result.push(i**2) // i의 제곱
+  i++
+} while(i < 0)
+
+console.log(result) // [0]
+```
+
+조건이 처음부터 충족되지 않음에도 `result` 에 `0` 이 추가되었습니다.  
+이것을 `while` 루프로 해보면  
+
+```js
+let i = 0
+let result = []
+while(i < 0) {
+  result.push(i**2)
+  i++
+}
+
+console.log(result) // []
+```
+
+조건이 먼저 확인되면서 조건이 충족되지 않는게 확인, `result` 에는 아무것도 추가되지 않습니다.  
+
+<br>
+<br>
+<br>
+
+<h2 id="conditionals">조건문/비교 연산</h2>  
+
+**조건문**  
+
+조건문은 말 그대로 조건에따라 작업을 실행할때 사용됩니다.  
+조건은 만드는 방법은  
+
+1. `true/false` 값을 사용
+2. 비교 연산을 사용
+
+이렇게 두가지 방법이 있습니다.  
+
+<br>
+<br>
+
+```js
+// 조건문 if...else
+if(true) {
+  console.log('true')
+} else {
+  console.log('false')
+}
+output: true
+
+
+if(5 > 3) {
+  console.log('true')
+} else {
+  console.log('false')
+}
+output: true
+
+
+const user = {
+  username: 'iamuser',
+  isAdmin: false
+}
+
+if(user.isAdmin) {
+  console.log('true')
+}else {
+  console.log('false')
+}
+output: false
+```
+
+`if` 는 주어진 조건이 `true` 일때 실행됩니다.  
+`else` 는 if 의 조건이 `false` 일때 실행됩니다.  
+
+`if`의 조건에는 주로 비교 연산을 같이 사용합니다.  
+
+<br>
+<br>
+
+```js
+// 조건문 switch
+let val = 5
+
+switch(val) {
+  case 5:
+    console.log("correct")
+    break;
+  case 10:
+    console.log("wrong")
+    break;
+  default:
+    console.log("unknown")
+}
+output: "correct"
+
+
+val = '5'
+
+switch(val) {
+  case 5:
+    console.log("correct")
+    break;
+  case 10:
+    console.log("wrong")
+    break;
+  default:
+    console.log("unknown")
+}
+output: "unknown"
+```
+
+`switch` 는 주어진 조건에 맞는 케이스의 작업을 실행합니다.  
+`default` 는 맞는 케이스가 없는경우 실행됩니다.  
+케이스는 항상 `break` 로 끝나야 합니다. 그렇지 않으면 `break` 가 있는 케이스를 만날때까지 각 케이스의 작업을 실행순서대로 실행합니다.  
+
+```js
+let val = 5
+
+switch(val) {
+  case 5:
+    console.log("correct")
+  case 10:
+    console.log("wrong")
+    break;
+  default:
+    console.log("unknown")
+}
+output: "correct wrong"
+``` 
+
+---
+
+**비교 연산**  
+
+비교 연산은  
+
+* equal (==/===) (동일 비교 연산)
+* not equal (!=/!==) (비동일 비교 연산)
+* greater than (>)
+* greater than or equal (>=)
+* less than (<)
+* less than or equal (<=)
+* and (&&)
+* or (||)
+* not (!)
+
+이렇게 9가지가 있습니다.  
+
+`==` vs `===`  
+`==` 은 좌우를 같은 타입으로 변환해서 비교합니다. 타입 변환후 값이 같으면 `true` 를 반환합니다.  
+
+```js
+5 == '5' => true
+```  
+
+<br>
+
+`===` 은 좌우의 타입을 변환하지 않습니다. 오직 타입과 값이 같을경우에만 `true` 를 반환합니다.  
+
+```js
+5 === '5' => false  
+```
+
+<br>
+
+`!=` 와 `!==` 은 비동일 연산으로 좌우가 다를때 `true` 를 반환합니다.  
+
+```js
+4 != 5 => true  
+5 !== '5' => true
+```
+
+<br>
+
+`&&` 연산  
+
+* `true && true` => true
+* `true && false` => false
+* `false && true` => false
+* `false && false` => false
+
+<br>
+
+`||` 연산  
+
+* `true || true` => true
+* `true || false` => true
+* `false || true` => true
+* `false || false` => false
+
+<br>
+
+`!` 연산  
+
+* `!true` => false
+* `!false` => true
+
+<br>
+<br>
+<br>
+
+<h2 id="function">함수</h2>  
+
+함수는 여러 단계를 거치는 작업을 하나의 명령으로 묶는 방법입니다.  
+함수를 만들때 기억해야할 두가지는  
+
+- 함수는 한가지 작업만 합니다
+- 함수는 재사용할수 있어야합니다
+
+첫번째, 함수는 한가지 작업만 한다  
+말 그대로 입니다  
+예를들어 초를 시간(시, 분)으로 계산하는 함수가 있다고 해볼께요  
+그러면 이 함수내의 작업은 초를 시,분 계산만해야지  
+날짜계산도하면 두가지 작업을 하게되는거죠  
+
+<br>
+
+두번째, 함수는 재사용할수 이어야한다  
+위 시간를 계산하는 함수를 다시 예로 들어보자면  
+함수를 여러번 다른값으로 사용할수있어야 합니다  
+좀더 쉽게 설명하자면 이 함수를 사용해서 300초, 5894초, 102938초, 등등  
+이렇게 여러번 다른값으로 사용할수있어야 합니다  
+
+<br>
+
+그러면 이제 함수를 만드는 방법을 알아봐야겠죠  
+함수를 작성하는 방법은 두가지 입니다  
+
+```js
+// 함수 작성법 1번 - 네임드(Named) 함수
+function add(a, b) {
+  let total = a + b
+  return total
+}
+
+// 함수 작성법 2번 - 애로우(Arrow) 함수
+const add = (a, b) => {
+  let total = a + b
+  return total
+}
+```
+
+`네임드` 을 살펴보면  
+`function` 은 자바스크립트의 키워드로 함수를 만들때 사용합니다  
+`add` 는 함수 이름입니다  
+`(a, b)` 는 함수가 받아 사용할수있는 값(들) 입니다  
+만약 함수에 값이 필요없는경우 그냥 `()` 이렇게  
+만약 함수가 하나의 값만 사용하면 `(a)` 이렇게 작성하면 됩니다  
+`{   }` 안에는 함수가 실행해야할 작업을 작성합니다  
+`return` 은 결과를 반환하는 키워드 입니다  
+함수가 결과를 반환하지않는경우 사용하지 않습니다  
+
+<br>
+
+`애로우` 을 살펴보면  
+`add` 는 함수 이름입니다  
+`=` 는 변수를 만들때 봤던것과 같은 할당 연산자 입니다  
+`(a, b)` 는 함수가 받아 사용할수있는 값(들) 입니다  
+`=>` 는 함수를 만드는 연산자로 ES6에서 새로 소개되었습니다  
+`{   }` 안에는 함수가 실행해야할 작업을 작성합니다  
+`return` 은 결과를 반환하는 키워드 입니다  
+함수가 결과를 반환하지않는경우 사용하지 않습니다  
+
+<br>
+
+그러면 `네임드` 와 `애로우` 의 차이점은 뭘까요?  
+차이점은 `this` 키워드입니다  
+`this` 는 함수를 실행시킨 객채를 가르키는 키워드입니다  
+이 키워드가 기본적으로 가르키는 객채는 최상위에있는 객채로써  
+브라우저에서는 `window` 객채를 가르키고, NodeJS 에서는 `global` 객채를 가르킵니다  
+
+<br>
+
+`네임드` 함수에서 사용되는 `this` 키워드는 함수의 문맥에따라  
+가르키는 객채가 달라집니다  
+
+```js
+function foo() {
+  console.log(this) // window
+}
+
+let person = {
+  name: 'Bob',
+  sayHello: function(){
+    console.log(this) // person{name: 'bob', sayHello: function}
+  }
+}
+// sayHello 는 객채함수입니다
+
+let person = {
+  name: 'Bob',
+  languages: ['C++', 'Python', 'JavaScript', 'Java'],
+  sayHello: function(){
+    console.log(this) // {name: 'bob', sayHello: sayHello()}
+  },
+  iKnow: function() {
+    this.languages.forEach(function(lang) {
+      console.log(this) // window
+    })
+  }
+}
+// forEach() 에서 실행된 function(lang){} 은 이름없는 함수입니다.
+// 이름없는 함수는 최상위 객채에서 실행됨으로 여기서 this는 window가 됩니다
+```
+
+`애로우` 함수에서 사용되는 `this` 키워드는 렉시컬(lexical) 스콥으로  
+가르키는 객채가 달라집니다  
+렉시컬 스콥을 쉽게 이해하는 방법은 건물을 생각해보면 되겠습니다  
+건물의 1층이 실행된 함수이고 위로 올라갈수록 글로벌 객채에 가까워지는거죠  
+한층 한층 가면서 `this` 가 있는지 확인하고 없으면 다음층으로 올라가는   
+그래서 결국엔 글로벌 객채까지 가게됩니다  
+
+```js
+let foo = () => {
+  console.log(this) // window
+}
+
+let person = {
+  name: 'Bob',
+  sayHello: () => {
+    console.log(this) // window
+    // 사실 애로우 함수의 사용 용도 한계중 하나가 객채함수로 사용하지 않는것입니다
+    // 이 예시는 사실 틀린 예시입니다
+  },
+  iKnow: function() {
+    this.languages.forEach((lang) => {
+      console.log(this) // {name: 'Bob', sayHello: sayHello(), iKnow: iKnow()}
+    })
+  }
+}
+```
